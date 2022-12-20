@@ -1,0 +1,15 @@
+import os
+
+# Obtém o caminho para o diretório atual
+diretorio_atual = os.getcwd()
+
+# Obtém uma lista de todos os arquivos no diretório atual
+arquivos = os.listdir(diretorio_atual)
+
+# Itera sobre cada arquivo na lista
+for i, arquivo in enumerate(arquivos):
+    # Cria o novo nome do arquivo com o número adicionado no final
+    novo_nome = arquivo + str(i+1)
+    
+    # Renomeia o arquivo usando o método os.rename()
+    os.rename(arquivo, novo_nome)
