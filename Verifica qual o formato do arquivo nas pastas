@@ -1,0 +1,19 @@
+import os
+from pathlib import Path
+
+# Obtém o caminho para o diretório atual
+diretorio_atual = Path.cwd()
+
+# Itera sobre os arquivos e diretórios no diretório atual
+for arquivo_ou_diretorio in diretorio_atual.iterdir():
+    # Verifica se o arquivo ou diretório é um arquivo
+    if arquivo_ou_diretorio.is_file():
+        # Obtém o formato do arquivo (a parte da extensão após o último ponto)
+        formato = arquivo_ou_diretorio.suffix
+
+        # Imprime o nome do arquivo e o seu formato
+        print(f"O arquivo {arquivo_ou_diretorio.name} é do formato {formato}")
+    # Se o arquivo ou diretório for um diretório, chama a função recursivamente para ler os arquivos dentro dele
+    elif arquivo_ou_diretorio.is_dir():
+        ler_arquivos(arquivo_ou_diretorio)
+
